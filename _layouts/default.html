@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <div class="min-h-full">
+      <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <a href="/"><img class="w-8" src="/assets/img/jombo-logo-mini.png" alt="jombo"></a>
+              </div>
+              <div class="ml-10 flex items-baseline space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Blog</a>
+  
+                <a href="https://jombo.es" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Volver a jombo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+      <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900"><a href="/">Artículos</a></h1>
+        </div>
+      </header>
+      <main>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+          <!-- Replace with your content -->
+          <div class="h-screen px-4 py-6 sm:px-0">
+            {{ content }}
+          </div>
+          <!-- /End replace -->
+        </div>
+      </main>
+    </div>
+    <footer class="p-4 bg-white shadow md:px-6 md:py-8 dark:bg-gray-800">
+      <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© Jombo. Todos los derechos reservados.</span>
+    </footer>
+  </body>
+</html>

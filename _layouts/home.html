@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+{% if site.paginate %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{%- if posts.size > 0 -%}
+  {%- if page.list_title -%}
+    <h1>{{ page.list_title }}</h1>
+  {%- endif -%}
+  
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+  {%- for post in posts -%}
+  <article class="mb-12" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      <a class="text-2xl font-medium" href="{{ post.url | relative_url }}">
+        {{ post.title | escape }}</h3>
+      </a>
+      <p class="text-md font-medium mb-4">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ post.date | date: date_format }}
+        </time>
+      </p>
+    </header>
+  
+
+    <div class="text-md font-medium">
+      {{ post.content }}
+    </div>
+  </article>
+  {%- endfor -%}
+
+
+  {% if site.paginate %}
+    <div class="pager">
+      <ul class="pagination">
+      {%- if paginator.previous_page %}
+        <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
+      {%- else %}
+        <li><div class="pager-edge">•</div></li>
+      {%- endif %}
+        <li><div class="current-page">{{ paginator.page }}</div></li>
+      {%- if paginator.next_page %}
+        <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
+      {%- else %}
+        <li><div class="pager-edge">•</div></li>
+      {%- endif %}
+      </ul>
+    </div>
+  {%- endif %}
+
+{%- endif -%}
